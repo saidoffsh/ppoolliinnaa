@@ -1,0 +1,326 @@
+/* Основные настройки */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #050b18;
+    --card: #0b1426;
+    --blue: #142b4b;
+    --light-blue: #8caed8;
+    --text: #edf3fc;
+    --muted: #899bb5;
+    --border: rgba(153, 187, 230, 0.18);
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 18px;
+
+    font-family: -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", sans-serif;
+
+    color: var(--text);
+    background: var(--background);
+
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Фоновое свечение */
+
+.background-glow {
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+    filter: blur(140px);
+
+    opacity: 0.17;
+    pointer-events: none;
+}
+
+.glow-one {
+    top: -120px;
+    left: -100px;
+    background: #245b9c;
+}
+
+.glow-two {
+    bottom: -150px;
+    right: -100px;
+    background: #193d73;
+}
+
+/* Главная карточка */
+
+.gift-card {
+    width: 100%;
+    max-width: 560px;
+
+    position: relative;
+    z-index: 1;
+
+    padding: 44px 32px 35px;
+
+    background: linear-gradient(
+        155deg,
+        rgba(16, 30, 53, 0.97),
+        rgba(7, 15, 30, 0.98)
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    animation: appear 1s ease both;
+}
+
+/* Верхняя линия */
+
+.top-line {
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #739dce,
+        transparent
+    );
+}
+
+/* Появление карточки */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Заголовок */
+
+.header {
+    text-align: center;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+
+    color: var(--light-blue);
+
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 8vw, 50px);
+    font-weight: normal;
+    letter-spacing: 1px;
+
+    color: #f0f5ff;
+
+    margin-bottom: 23px;
+}
+
+.divider {
+    width: 55px;
+    height: 1px;
+
+    margin: 0 auto 23px;
+
+    background: #7196c5;
+}
+
+.intro {
+    max-width: 365px;
+
+    margin: 0 auto;
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    color: var(--muted);
+}
+
+/* Видео */
+
+.video-section {
+    margin-top: 35px;
+}
+
+.video-frame {
+    padding: 5px;
+
+    border: 1px solid rgba(132, 170, 220, 0.35);
+
+    background: linear-gradient(
+        135deg,
+        #29496f,
+        #101d33,
+        #243f64
+    );
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+video {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: 560px;
+
+    object-fit: contain;
+
+    background: #030813;
+}
+
+.video-caption {
+    margin-top: 17px;
+
+    text-align: center;
+
+    font-size: 11px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+
+    color: #7e91ac;
+}
+
+/* Текст под видео */
+
+.message-section {
+    text-align: center;
+
+    margin-top: 38px;
+}
+
+.ornament {
+    width: 30px;
+    height: 1px;
+
+    margin: 0 auto 25px;
+
+    background: #7196c5;
+}
+
+.message {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(19px, 5vw, 23px);
+    font-weight: normal;
+
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+
+    color: #dce8fa;
+}
+
+.sub-message {
+    margin-top: 15px;
+
+    font-size: 12px;
+    letter-spacing: 0.5px;
+
+    color: var(--muted);
+}
+
+/* Нижняя часть */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+
+    margin-top: 38px;
+}
+
+.footer p {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+
+    color: #8ba2c1;
+    white-space: nowrap;
+}
+
+.footer-line {
+    width: 25px;
+    height: 1px;
+
+    background: var(--border);
+}
+
+/* Адаптация под телефон */
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .gift-card {
+
+
+padding: 35px 19px 28px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3.5px;
+    }
+
+    .intro {
+        font-size: 13px;
+    }
+
+    .video-section {
+        margin-top: 28px;
+    }
+
+    video {
+        max-height: 65vh;
+    }
+
+    .message-section {
+        margin-top: 30px;
+    }
+
+    .footer {
+        margin-top: 30px;
+    }
+}
+
+/* Уменьшение анимации по настройкам устройства */
+
+@media (prefers-reduced-motion: reduce) {
+    .gift-card {
+        animation: none;
+    }
+}
